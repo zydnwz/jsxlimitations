@@ -1,9 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef } from 'react';
 
-import Card from "../UI/Card";
-import Button from "../UI/Button";
-import ErrorModal from "../UI/ErrorModal";
-import classes from "./AddUser.module.css";
+import Card from '../UI/Card';
+import Button from '../UI/Button';
+import ErrorModal from '../UI/ErrorModal';
+import classes from './AddUser.module.css';
 
 const AddUser = (props) => {
   const nameInputRef = useRef();
@@ -24,23 +24,22 @@ const AddUser = (props) => {
       enteredCollege.trim().length === 0
     ) {
       setError({
-        title: "Invalid input",
-        message:
-          "Please enter a valid name, age, and college name (non-empty values).",
+        title: 'Invalid input',
+        message: 'Please enter a valid name, age, and college (non-empty values).',
       });
       return;
     }
     if (+enteredUserAge < 1) {
       setError({
-        title: "Invalid age",
-        message: "Please enter a valid age (> 0).",
+        title: 'Invalid age',
+        message: 'Please enter a valid age (> 0).',
       });
       return;
     }
     props.onAddUser(enteredName, enteredUserAge, enteredCollege);
-    nameInputRef.current.value = "";
-    ageInputRef.current.value = "";
-    collegeInputRef.current.value = "";
+    nameInputRef.current.value = '';
+    ageInputRef.current.value = '';
+    collegeInputRef.current.value = '';
   };
 
   const errorHandler = () => {
